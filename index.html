@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Для тебя ❤️</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", sans-serif;
+      }
+      body {
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        color: #fff;
+        overflow-x: hidden;
+      }
+
+      header {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 3rem;
+        animation: fadeIn 2s ease-in-out;
+      }
+
+      p {
+        margin-top: 20px;
+        font-size: 1.2rem;
+        max-width: 500px;
+        animation: fadeIn 3s ease-in-out;
+      }
+
+      .heart {
+        font-size: 3rem;
+        animation: pulse 1.5s infinite;
+        margin-top: 20px;
+      }
+
+      section {
+        padding: 60px 20px;
+        text-align: center;
+      }
+
+      .card {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 30px;
+        margin: 20px auto;
+        max-width: 400px;
+        transition: transform 0.3s;
+      }
+
+      .card:hover {
+        transform: translateY(-10px);
+      }
+
+      footer {
+        text-align: center;
+        padding: 20px;
+        font-size: 0.9rem;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+      }
+
+      .floating-hearts span {
+        position: absolute;
+        color: #fff;
+        font-size: 20px;
+        animation: floatUp 6s linear infinite;
+      }
+
+      @keyframes floatUp {
+        0% {
+          transform: translateY(100vh);
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-10vh);
+          opacity: 0;
+        }
+      }
+
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 2rem;
+        }
+        p {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="floating-hearts" id="hearts"></div>
+
+    <header>
+      <h1>Кому: Любовнице Вите ✨</h1>
+      <p>Ты просто прекрасный собутыльник</p>
+      <div class="heart">❤️</div>
+    </header>
+
+    <section>
+      <div class="card">Ты делаешь мое здоровье ещё хуже🌸</div>
+      <div class="card">
+        С тобой даже соджу с персиком пьется как лимонад 🎶
+      </div>
+      <div class="card">Я хочу снова и снова долбится в десны бухой 💫</div>
+    </section>
+
+    <footer>
+      Только для тебя 💌 <br />
+      от любовника
+    </footer>
+
+    <script>
+      const heartsContainer = document.getElementById("hearts");
+
+      function createHeart() {
+        const heart = document.createElement("span");
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = 3 + Math.random() * 3 + "s";
+        heartsContainer.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 6000);
+      }
+
+      setInterval(createHeart, 300);
+    </script>
+  </body>
+</html>
